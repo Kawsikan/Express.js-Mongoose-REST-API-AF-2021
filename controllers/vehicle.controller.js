@@ -13,11 +13,6 @@ const createVehicle = async (req, res) => {
     }
 }
 
-// const getAllVehicles = async (req, res) => {
-//     const posts = await Vehicle.find()
-// 	res.send(posts)
-        
-// }
 
 const getAllVehicles = async (req, res) => {
     await Vehicle.find({}).populate('categories', 'name description')

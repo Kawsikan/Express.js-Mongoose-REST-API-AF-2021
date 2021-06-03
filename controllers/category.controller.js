@@ -13,10 +13,7 @@ const createCategory = async (req, res) => {
     }
 }
 
-// const getAllCategories = async (req, res) => {
-//     const posts = await Category.find()
-//     res.send(posts)
-// }
+
 const getAllCategories = async (req, res) => {
     await Category.find({}).populate('vehicles', 'code model type name')
         .then(data => {
@@ -29,7 +26,7 @@ const getAllCategories = async (req, res) => {
 
 const getVehiclesForCategory = async (req, res) => {
     if (req.params && req.params.id) {
-        const vehicle = await Category.findById(req.params.id)
+        const category = await Category.findById(req.params.id)
             .populate('vehicles', 'code model type name')
             .then(data => {
                 res.status(200).send({ data: data.vehicles });
