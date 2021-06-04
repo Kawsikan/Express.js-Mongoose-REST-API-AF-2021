@@ -15,7 +15,7 @@ const createVehicle = async (req, res) => {
 
 
 const getAllVehicles = async (req, res) => {
-    await Vehicle.find({}).populate('categories', 'name description')
+    await Vehicle.find({}).populate('categories', 'name description amount')
         .then(data => {
             res.status(200).send({ data: data });
         })

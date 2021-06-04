@@ -11,10 +11,10 @@ const CategorySchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    // amount: {
-    //     type: Number,
-    //     required: true
-    // },
+    amount: {
+        type: Number,
+        required: true
+    },
     vehicles: [{ type: mongoose.Schema.Types.ObjectId, required: false, ref: 'vehicles' }]
 
 });
