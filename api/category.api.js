@@ -6,6 +6,8 @@ module.exports = function () {
     router.post('/create', categoryController.createCategory);
     router.get('/', categoryController.getAllCategories);
     router.get('/:id', categoryController.getVehiclesForCategory);
+    router.get('/calculate/:id&:duration', categoryController.calculateCharge);
+
     return router;
 }
 

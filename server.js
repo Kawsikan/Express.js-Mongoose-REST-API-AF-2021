@@ -34,6 +34,12 @@ app.use('/category', categoryAPI());
 
 app.use('/vehicle', vehicleAPI());
 
+app.get("/", (req, res) => {
+    res.status(200).send("Hello World!");
+});
+
+module.exports = app;
+
 app.listen(PORT, () => {
     console.log(`Server is up and running on PORT ${PORT}`);
 })

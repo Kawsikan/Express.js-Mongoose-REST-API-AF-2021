@@ -37,6 +37,17 @@ const getVehiclesForCategory = async (req, res) => {
     }
 }
 
+const calculateCharge = async (req, res) => {
+    if (req.params && req.params.id) {
+        const category = await Category.findById(req.params.id)
+           
+        let totalCharge = 0;
+        totalCharge = req.params.duration * category.amount;
+        
+        res.status(200).send({ totalCharge: totalCharge });
+    }
+}
+
 module.exports = {
-    createCategory, getAllCategories, getVehiclesForCategory
+    createCategory, getAllCategories, getVehiclesForCategory,calculateCharge
 }
